@@ -8,7 +8,7 @@ public abstract class Empleado {
 	protected String direccion;
 	protected String estadoCivil;
 	protected float sueldoBasico;
-
+ 
 	public int Edad(int añoActual) {
 		return añoDeNacimiento - añoActual; 
 	}
