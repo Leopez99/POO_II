@@ -1,6 +1,6 @@
 package ej1;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public abstract class Empleado {
 	protected int añoDeNacimiento;
@@ -9,8 +9,8 @@ public abstract class Empleado {
 	protected String estadoCivil;
 	protected float sueldoBasico;
  
-	public int Edad(int añoActual) {
-		return añoDeNacimiento - añoActual;
+	public int Edad() {
+		return añoDeNacimiento - Calendar.YEAR;
 	}
 	
 	public abstract float Retenciones();
