@@ -10,14 +10,14 @@ public abstract class Empleado {
 	protected float sueldoBasico;
  
 	public int Edad(int añoActual) {
-		return añoDeNacimiento - añoActual; //Hice esto de diferente.
+		return añoDeNacimiento - añoActual;
 	}
 	
 	public abstract float Retenciones();
 	
-	public abstract float CalcularSueldoBasico();
+	public abstract float CalcularSueldoBruto();
 	
-	public float SueldoNeto() {
-		return Retenciones() - CalcularSueldoBasico();
+	public float SueldoNeto() { 
+		return Retenciones() - CalcularSueldoBruto();
 	}
 }
