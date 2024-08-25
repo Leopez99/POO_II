@@ -2,7 +2,6 @@ package ej1;
 
 public class EmpleadoTemporario extends Empleado {
 	private int horasExtras;
-	private int antiguedad;
 	private int anioDeFinDeContrato;
 	
 	@Override
