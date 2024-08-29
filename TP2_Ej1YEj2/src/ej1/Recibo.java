@@ -16,8 +16,10 @@ public class Recibo {
 		this.sueldoNeto = sueldoNeto;
 	}
 	
-	private void desgloceDeConceptos(Empleado empleado) {
-		
+	public void desgloceDeConceptos(Empleado empleado) {
+		conceptos = "Obra social: " 		+ empleado.obraSocial() + "/n"
+				+ "Aportes jubilatorios: " 	+ empleado.aporteJubilatorio() + "/n"
+				+ "Retenciones: "		    + empleado.retenciones();
 	}
 
 	private String getConceptos() {
