@@ -13,12 +13,12 @@ public abstract class Empleado {
 		return añoDeNacimiento - Calendar.YEAR;
 	}
 	
-	public abstract float Retenciones();
+	public abstract float retenciones();
 	
-	public abstract float CalcularSueldoBruto();
+	public abstract float calcularSueldoBruto();
 	
 	public float SueldoNeto() { 
-		return Retenciones() - CalcularSueldoBruto();
+		return retenciones() - calcularSueldoBruto();
 	}
 
 	public float getSueldoBasico() {

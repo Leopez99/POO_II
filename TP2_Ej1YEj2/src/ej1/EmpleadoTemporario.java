@@ -5,32 +5,32 @@ public class EmpleadoTemporario extends Empleado {
 	private int anioDeFinDeContrato;
 	
 	@Override
-	public float Retenciones() {
-		return this.ObraSocial() + this.AporteJubilatorio();
+	public float retenciones() {
+		return this.obraSocial() + this.AporteJubilatorio();
 	}
 
 	@Override
-	public float CalcularSueldoBruto() {
-		return this.getSueldoBasico() + this.CalculoHorasExtras(40);
+	public float calcularSueldoBruto() {
+		return this.getSueldoBasico() + this.calculoHorasExtras(40);
 	}
 	
 	//Calculo para sueldo bruto
-	private int CalculoHorasExtras(int dineroPorHora) {
+	private int calculoHorasExtras(int dineroPorHora) {
 		return this.horasExtras * dineroPorHora;
 	}
 	
 	//Calculos para retenciones
-	private int ObraSocial() {
-		return (int) (this.CalcularSueldoBruto() * 0.1 + this.SuperaEdad(50));
+	public int obraSocial() {
+		return (int) (this.calcularSueldoBruto() * 0.1 + this.superaEdad(50));
 	}
 	
-	private int SuperaEdad(int aniosASuperar) {
+	private int superaEdad(int aniosASuperar) {
 		int dinero = 25;
 		return this.edad() > aniosASuperar ? dinero : 0;
 	}
 	
-	private int AporteJubilatorio() {
-		return (int) (this.CalcularSueldoBruto() + this.CalculoHorasExtras(5));
+	public int AporteJubilatorio() {
+		return (int) (this.calcularSueldoBruto() + this.calculoHorasExtras(5));
  	}
 
 }

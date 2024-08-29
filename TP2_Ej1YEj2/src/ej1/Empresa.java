@@ -1,5 +1,6 @@
 package ej1;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
@@ -25,7 +26,7 @@ public class Empresa {
 		return this.cuit;
 	}
 	
-	public float TotalSueldoNeto() {
+	public float totalSueldoNeto() {
 		float contador = 0;
 		for (Empleado empleado : cojuntoDeEmpleados) {
 			contador += empleado.SueldoNeto();
@@ -33,18 +34,18 @@ public class Empresa {
 		return contador;
 	}
 	
-	public float TotalSueldoBruto() {
+	public float totalSueldoBruto() {
 		float contador = 0;
 		for (Empleado empleado : cojuntoDeEmpleados) {
-			contador += empleado.CalcularSueldoBruto();
+			contador += empleado.calcularSueldoBruto();
 		}
 		return contador;
 	}
 	
-	public float TotalRetenciones() {
+	public float totalRetenciones() {
 		float contador = 0;
 		for (Empleado empleado : cojuntoDeEmpleados) {
-			contador += empleado.Retenciones();
+			contador += empleado.retenciones();
 		}
 		return contador;
 	}
@@ -56,6 +57,6 @@ public class Empresa {
 	}
 	
 	private Recibo crearReciboDeEmpleado(Empleado empleado) {
-		return new Recibo(empleado.getNombre(), Calendar.DATE, empleado.CalcularSueldoBruto(), empleado.SueldoNeto());
+		return new Recibo(empleado.getNombre(), LocalDate.now(), empleado.calcularSueldoBruto(), empleado.SueldoNeto());
 	}
 }
