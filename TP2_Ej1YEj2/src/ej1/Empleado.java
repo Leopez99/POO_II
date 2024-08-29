@@ -17,6 +17,10 @@ public abstract class Empleado {
 	
 	public abstract float calcularSueldoBruto();
 	
+	public abstract float obraSocial();
+	
+	public abstract int aporteJubilatorio();
+	
 	public float SueldoNeto() { 
 		return retenciones() - calcularSueldoBruto();
 	}

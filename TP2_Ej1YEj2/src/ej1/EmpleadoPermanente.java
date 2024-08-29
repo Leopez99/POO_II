@@ -7,19 +7,30 @@ public class EmpleadoPermanente extends Empleado {
 	
 	@Override
 	public float retenciones() {
-		return this.ObraSocial() + this.AporteJubilatorio();
+		return this.obraSocial() + this.aporteJubilatorio();
 	}
 
 	@Override
 	public float calcularSueldoBruto() {
-		return SalarioFamiliar() + this.getSueldoBasico() + this.antiguedad();
-	}
-	//Calculos para el sueldo bruto
-	private int SalarioFamiliar() {
-		return this.AsignacionPorConyuge() + this.AsignacionPorHijo();
+		return salarioFamiliar() + this.getSueldoBasico() + this.antiguedad();
 	}
 	
-	public int AsignacionPorHijo() {
+	@Override
+	public float obraSocial() {
+		int dinero = 20; 
+		return (float) (this.calcularSueldoBruto() * 0.1 + dinero * this.cantidadDeHijos);
+	}
+	
+	@Override
+	public int aporteJubilatorio() {
+		return (int) (this.calcularSueldoBruto() * 0.15);
+	}
+	
+	private int salarioFamiliar() {
+		return this.asignacionPorConyuge() + this.asignacionPorHijo();
+	}
+	
+	public int asignacionPorHijo() {
 		int dinero = 150;
 		return this.cantidadDeHijos * dinero;
 	}
@@ -33,18 +44,9 @@ public class EmpleadoPermanente extends Empleado {
 		return this.antiguedad * dinero;
 	}
 	
-	public int AsignacionPorConyuge() {
+	public int asignacionPorConyuge() {
 		int dinero = 50;
 		return this.cantidadSiTieneConyuge() + dinero * this.cantidadDeHijos;
-	}
-	//Calculos para retenciones
-	public float ObraSocial() {
-		int dinero = 20; 
-		return (float) (this.calcularSueldoBruto() * 0.1 + dinero * this.cantidadDeHijos);
-	}
-	
-	public float AporteJubilatorio() {
-		return (float) (this.calcularSueldoBruto() * 0.15);
 	}
 
 }

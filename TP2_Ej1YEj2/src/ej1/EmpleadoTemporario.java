@@ -6,7 +6,7 @@ public class EmpleadoTemporario extends Empleado {
 	
 	@Override
 	public float retenciones() {
-		return this.obraSocial() + this.AporteJubilatorio();
+		return this.obraSocial() + this.aporteJubilatorio();
 	}
 
 	@Override
@@ -14,14 +14,14 @@ public class EmpleadoTemporario extends Empleado {
 		return this.getSueldoBasico() + this.calculoHorasExtras(40);
 	}
 	
-	//Calculo para sueldo bruto
-	private int calculoHorasExtras(int dineroPorHora) {
-		return this.horasExtras * dineroPorHora;
+	@Override
+	public float obraSocial() {
+		return (float) (this.calcularSueldoBruto() * 0.1 + this.superaEdad(50));
 	}
 	
-	//Calculos para retenciones
-	public int obraSocial() {
-		return (int) (this.calcularSueldoBruto() * 0.1 + this.superaEdad(50));
+	@Override
+	public int aporteJubilatorio() {
+		return (int) (this.calcularSueldoBruto() + this.calculoHorasExtras(5));
 	}
 	
 	private int superaEdad(int aniosASuperar) {
@@ -29,8 +29,8 @@ public class EmpleadoTemporario extends Empleado {
 		return this.edad() > aniosASuperar ? dinero : 0;
 	}
 	
-	public int AporteJubilatorio() {
-		return (int) (this.calcularSueldoBruto() + this.calculoHorasExtras(5));
- 	}
+	private int calculoHorasExtras(int dineroPorHora) {
+		return this.horasExtras * dineroPorHora;
+	}
 
 }

@@ -7,6 +7,7 @@ public class Recibo {
 	private LocalDate fechaDeEmision;
 	private float sueldoBruto;
 	private float sueldoNeto;
+	private String conceptos;
 	
 	public Recibo(String nombreDeEmpleado, LocalDate fechaDeEmision, float sueldoBruto, float sueldoNeto) {
 		this.nombreDeEmpleado = nombreDeEmpleado;
@@ -15,7 +16,11 @@ public class Recibo {
 		this.sueldoNeto = sueldoNeto;
 	}
 	
-	private void desgloceDeConceptos() {
+	private void desgloceDeConceptos(Empleado empleado) {
 		
+	}
+
+	private String getConceptos() {
+		return conceptos;
 	}
 }
