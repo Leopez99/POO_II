@@ -11,7 +11,7 @@ public class EmpleadoTemporario extends Empleado {
 
 	@Override
 	public float CalcularSueldoBruto() {
-		return this.sueldoBasico + this.CalculoHorasExtras(40);
+		return this.getSueldoBasico() + this.CalculoHorasExtras(40);
 	}
 	
 	//Calculo para sueldo bruto
@@ -26,7 +26,7 @@ public class EmpleadoTemporario extends Empleado {
 	
 	private int SuperaEdad(int aniosASuperar) {
 		int dinero = 25;
-		return this.Edad() > aniosASuperar ? dinero : 0;
+		return this.edad() > aniosASuperar ? dinero : 0;
 	}
 	
 	private int AporteJubilatorio() {

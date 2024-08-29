@@ -1,15 +1,20 @@
 package ej1;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 
 public class Empresa {
 	private String nombre;
 	private String cuit;
-	public List<Empleado> cojuntoDeEmpleados; 
+	private List<Empleado> cojuntoDeEmpleados; 
+	private List<Recibo> listaDeRecibos; 
 	
 	public Empresa(String nombre, String cuit) {
-		nombre = this.nombre;
-		cuit = this.cuit;
+		this.nombre = nombre;
+		this.cuit = cuit;
+		this.cojuntoDeEmpleados = new ArrayList<>();
+		this.listaDeRecibos = new ArrayList<>();
 	}
 	
 	public String getNombre() {
@@ -44,7 +49,13 @@ public class Empresa {
 		return contador;
 	}
 	
-	public float LiquidacionDeSueldo() {
-		return this.TotalRetenciones() + this.TotalSueldoBruto() + this.TotalSueldoNeto();
+	public void liquidacionDeSueldo() {
+		for(Empleado empleado : this.cojuntoDeEmpleados) {
+			this.listaDeRecibos.add(this.crearReciboDeEmpleado(empleado));
+		}
+	}
+	
+	private Recibo crearReciboDeEmpleado(Empleado empleado) {
+		return new Recibo(empleado.getNombre(), Calendar.DATE, empleado.CalcularSueldoBruto(), empleado.SueldoNeto());
 	}
 }

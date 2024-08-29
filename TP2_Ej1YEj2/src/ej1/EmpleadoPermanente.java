@@ -12,7 +12,7 @@ public class EmpleadoPermanente extends Empleado {
 
 	@Override
 	public float CalcularSueldoBruto() {
-		return SalarioFamiliar() + this.sueldoBasico + this.Antiguedad();
+		return SalarioFamiliar() + this.getSueldoBasico() + this.Antiguedad();
 	}
 	//Calculos para el sueldo bruto
 	private int SalarioFamiliar() {
