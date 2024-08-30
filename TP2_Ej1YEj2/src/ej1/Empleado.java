@@ -3,14 +3,14 @@ package ej1;
 import java.util.Calendar;
 
 public abstract class Empleado {
-	private int añoDeNacimiento;
-	private String nombre;
-	private String direccion;
-	private String estadoCivil;
-	private float sueldoBasico;
+	protected int añoDeNacimiento;
+	protected String nombre;
+	protected String direccion;
+	protected String estadoCivil;
+	protected float sueldoBasico;
  
 	public int edad() {
-		return añoDeNacimiento - Calendar.YEAR;
+		return getAñoDeNacimiento() - Calendar.YEAR;
 	}
 	
 	public abstract float retenciones();
@@ -55,5 +55,13 @@ public abstract class Empleado {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public int getAñoDeNacimiento() {
+		return añoDeNacimiento;
+	}
+
+	public void setAñoDeNacimiento(int añoDeNacimiento) {
+		this.añoDeNacimiento = añoDeNacimiento;
 	}
 }

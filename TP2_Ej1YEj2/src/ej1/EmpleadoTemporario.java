@@ -4,6 +4,12 @@ public class EmpleadoTemporario extends Empleado {
 	private int horasExtras;
 	private int anioDeFinDeContrato;
 	
+	public EmpleadoTemporario(int horasExtras, int anioDeFinDeContrato, float sueldoBasico) {
+		this.horasExtras = horasExtras;
+		this.anioDeFinDeContrato = anioDeFinDeContrato;
+		this.sueldoBasico = sueldoBasico;
+	}
+	
 	@Override
 	public float retenciones() {
 		return this.obraSocial() + this.aporteJubilatorio();

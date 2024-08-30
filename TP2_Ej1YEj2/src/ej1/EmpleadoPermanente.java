@@ -5,6 +5,13 @@ public class EmpleadoPermanente extends Empleado {
 	private int antiguedad;
 	private boolean tieneConyuge;
 	
+	public EmpleadoPermanente(int cantidadDeHijos, int antiguedad, boolean tieneConyuge, float sueldoBasico) {
+		this.cantidadDeHijos = cantidadDeHijos;
+		this.antiguedad = antiguedad;
+		this.tieneConyuge = tieneConyuge;
+		this.sueldoBasico = sueldoBasico;
+	}
+	
 	@Override
 	public float retenciones() {
 		return this.obraSocial() + this.aporteJubilatorio();
