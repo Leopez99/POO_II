@@ -1,22 +1,20 @@
 package ej1;
 
 public class Concepto {
-	private String nombre;
-	private int valor;
+	private Empleado empleado;
 	
-	String getNombre() {
-		return nombre;
+	public Concepto(Empleado empleado) {
+		this.empleado = empleado;
+	}
+	public String mostrarObraSocial() {
+		return "Obra social: " + empleado.obraSocial() + "$";
 	}
 	
-	void setNombre(String nombre) {
-		this.nombre = nombre;
+	public String mostrarRetenciones() {
+		return "Retenciones: " + empleado.retenciones() + "$";
 	}
 	
-	int getValor() {
-		return valor;
-	}
-	
-	void setValor(int valor) {
-		this.valor = valor;
+	public String mostrarAporteJubilatorio() {
+		return "Aportes jubilatorios: " + empleado.aporteJubilatorio() + "$";
 	}
 }

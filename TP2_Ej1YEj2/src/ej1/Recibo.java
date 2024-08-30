@@ -17,12 +17,10 @@ public class Recibo {
 	}
 	
 	public void desgloceDeConceptos(Empleado empleado) {
-		conceptos = "Obra social: " 		+ empleado.obraSocial() + "/n"
-				+ "Aportes jubilatorios: " 	+ empleado.aporteJubilatorio() + "/n"
-				+ "Retenciones: "		    + empleado.retenciones();
-	}
-
-	private String getConceptos() {
-		return conceptos;
+		Concepto concepto = new Concepto(empleado);
+		
+		this.conceptos 	= concepto.mostrarAporteJubilatorio() + "/n"
+						+ concepto.mostrarObraSocial() + "/n"
+						+ concepto.mostrarRetenciones();
 	}
 }
